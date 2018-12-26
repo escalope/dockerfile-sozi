@@ -36,3 +36,7 @@ RUN dpkg -i /home/inkscape/sozi_18.04-1523042682_amd64.deb
 # Just a "bower install" does not work
 #RUN bower --allow-root install bower.json
 
+# install the export sozi presentations to pdf, pptx or video
+RUN DEBIAN_FRONTEND=noninteractive apt -y install texlive-extra-utils libav-tools
+RUN DEBIAN_FRONTEND=noninteractive npm install -g sozi-export --unsafe-perm
+
