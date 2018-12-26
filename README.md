@@ -1,3 +1,6 @@
+A tool to run the Sozi tool (credits to Guillaume Savaton, https://github.com/senshu/Sozi) for creating prezi-like presentations starting from SVGs. 
+
+Get further instructions in the dockerhub repo https://cloud.docker.com/repository/docker/escalope/inkscape-sozi
 
 To run the Inkscape
 
