@@ -23,10 +23,17 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install wine
 RUN DEBIAN_FRONTEND=noninteractive npm install bower grunt-cli -g
 
 #Installs one of the prebuilt images
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install libgconf-2-4 libxss1
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install libgconf-2-4 libxss1 unzip
 RUN cd /home/inkscape/
 RUN wget -c "https://github.com/senshu/Sozi/releases/download/v18.04/sozi_18.04-1523042682_amd64.deb"
 RUN dpkg -i /home/inkscape/sozi_18.04-1523042682_amd64.deb
+
+# install sozi media extensions for inkscape
+RUN cd /home/inkscape
+RUN wget https://github.com/senshu/Sozi/releases/download/v18.04/Sozi-extras-media-18.04-1523042682.zip
+RUN unzip Sozi-extras-media-18.04-1523042682.zip
+RUN mv sozi_extras_media.inx /usr/share/inkscape/extensions
+RUN mv sozi_extras_media.py /usr/share/inkscape/extensions
 
 
 # install from git repo does not work. It triggers a "ECONFLICT Unable to find suitable version for webcomponentsjs"
